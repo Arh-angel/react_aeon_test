@@ -5,9 +5,10 @@
   grid-template-areas:
     'header'
     'content';
-  grid-template-rows: 72px auto;
+  grid-template-rows: 60px auto;
   width: 100vw;
   height: 100vh;
+  padding: 24px;
 
   @media(max-width:768px) {
     grid-template-rows: 56px auto;

@@ -1,6 +1,36 @@
+@import '../../../assets/style/main';
+@import '../../../assets/style/vars';
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: auto;
+  margin-top: -8px;
+
+  & > .project_period_title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  & > button {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 101px;
+    height: 40px;
+    padding: 0px;
+    border: 1px solid rgba(38, 40, 66, 0.12);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+
+    & > svg {
+      margin-right: 8px;
+    }
+  }
 }

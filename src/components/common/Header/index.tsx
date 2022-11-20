@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../../hooks/storeHooks";
-import { IData } from "../../../models/IData";
-import { getData, selectData } from "../../../store/slice/mainSlice/mainSlice";
+// import { useAppDispatch, useAppSelector } from "../../../hooks/storeHooks";
+// import { IData } from "../../../models/IData";
+// import { getData, selectData } from "../../../store/slice/mainSlice/mainSlice";
 import Button from "../Button";
+import { currentData } from '../../../halpers/data';
 
 import style from './Header.module.scss';
 
 const Header = () => {
   const [data, setData] = useState<any>();
 
-  const currentData = useAppSelector(selectData);
+  // const currentData = useAppSelector(selectData);
 
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getData());
+    // dispatch(getData());
+
+    setData(currentData)
   }, []);
 
-  useEffect(() => {
-    if (currentData) {
-      setData(currentData);
-    }
-  }, [currentData]);
+  // useEffect(() => {
+  //   if (currentData) {
+  //     setData(currentData);
+  //   }
+  // }, [currentData]);
 
 
 
