@@ -1,0 +1,32 @@
+@import '../../../../assets/style/vars.scss';
+@import '../../../../assets/style/main.scss';
+
+.wrapper {
+  width: 100%;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(42, 47, 55, 0.12);
+    padding: 6px;
+    font-size: 12px;
+  }
+
+.reg {
+  width: 50%;
+}
+.auth {
+  width: 50%;
+}
+.active {
+  width: 50%;
+  color: $sub-color-two;
+  border-bottom: 2px solid $sub-color-two;
+}
+}

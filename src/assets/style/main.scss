@@ -1,0 +1,60 @@
+@import 'normalize';
+@import 'vars';
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: $text-color;
+  font-family: $text;
+  font-size: $text-size;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $title-color;
+  font-family: $title;
+  font-size: $title-size;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.container {
+  width: calc(728px + (1280 - 728) * ((100vw - 768px) / (1920 - 768)));
+  height: 100%;
+  margin: auto;
+
+  @media(max-width: 767px) {
+    width: calc(288px + (728 - 288) * ((100vw - 320px) / (767 - 320)));
+  }
+}
+
+.active {
+  color: $text-color;
+  border-bottom: 2px solid $text-color;
+}
