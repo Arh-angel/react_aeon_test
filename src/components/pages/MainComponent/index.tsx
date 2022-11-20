@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import Button from "../../common/Button";
+import React from "react";
 import style from './MainComponent.module.scss';
+import AsideComponent from "../AsideComponent";
+import TableContainer from "../../../containers/TableContainer";
 
 const MainComponent = () => {
-  console.log('MainComponent');
-
   return (
-    <h1>MainComponent</h1>
+    <div className={style.container}>
+      <AsideComponent />
+      <TableContainer />
+    </div>
   )
 }
 
