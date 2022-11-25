@@ -3,28 +3,27 @@ import React, { useEffect, useState } from "react";
 // import { IData } from "../../../models/IData";
 // import { getData, selectData } from "../../../store/slice/mainSlice/mainSlice";
 import Button from "../Button";
-import { currentData } from '../../../halpers/data';
 
 import style from './Header.module.scss';
+import { useAppDispatch, useAppSelector } from "../../../hooks/storeHooks";
+import { getData, selectData } from "../../../store/slice/mainSlice/mainSlice";
 
 const Header = () => {
   const [data, setData] = useState<any>();
 
-  // const currentData = useAppSelector(selectData);
+  const currentData = useAppSelector(selectData);
 
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // dispatch(getData());
-
-    setData(currentData)
+    dispatch(getData());
   }, []);
 
-  // useEffect(() => {
-  //   if (currentData) {
-  //     setData(currentData);
-  //   }
-  // }, [currentData]);
+  useEffect(() => {
+    if (currentData) {
+      setData(currentData);
+    }
+  }, [currentData]);
 
 
 

@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { JsxElement } from 'typescript';
+import { IData } from '../../../models/IData';
 import MainService from '../../../services/MainService';
 import { RootState } from '../../store';
 
@@ -9,8 +11,6 @@ export const getData = createAsyncThunk(
     try {
       const response = await MainService.getData();
 
-      console.log(response);
-
       return response.data;
     } catch (err:any) {
       console.log(err.message);
@@ -19,12 +19,23 @@ export const getData = createAsyncThunk(
 );
 
 export interface MainState {
-  data: any[],
+  data: IData,
+  arrList: any[],
   error: string
 }
 
 const initialState: MainState = {
-  data: [],
+  data: {
+    period: '',
+    project: '',
+    chart: {
+      id: 0,
+      period_end: '',
+      period_start: '',
+      sub: []
+    }
+  },
+  arrList: [],
   error: ''
 };
 
@@ -33,7 +44,22 @@ export const mainSlice = createSlice({
   initialState,
   reducers: {
     clearData: (state) => {
-      state.data = [];
+      state.data = {
+        period: '',
+        project: '',
+        chart: {
+          id: 0,
+          period_end: '',
+          period_start: '',
+          sub: []
+        }
+      };
+    },
+    addArrList: (state, action) => {
+      state.arrList = [...action.payload];
+    },
+    clearArrList: (state) => {
+      state.arrList = [];
     },
     clearErrorMessage: (state) => {
       state.error = '';
@@ -52,9 +78,10 @@ export const mainSlice = createSlice({
   },
 });
 
-export const { clearData, clearErrorMessage } = mainSlice.actions;
+export const { clearData, addArrList, clearArrList, clearErrorMessage } = mainSlice.actions;
 
 export const selectData = (state: RootState) => state.main.data;
+export const selectArrList = (state: RootState) => state.main.arrList;
 export const selectAuthError = (state: RootState) => state.main.error;
 
 export default mainSlice.reducer;

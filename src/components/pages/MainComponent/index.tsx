@@ -1,12 +1,12 @@
 import React from "react";
 import style from './MainComponent.module.scss';
-import AsideComponent from "../AsideComponent";
 import TableContainer from "../../../containers/TableContainer";
+import AsideContainer from "../../../containers/AsideContainers";
 
 const MainComponent = () => {
   return (
     <div className={style.container}>
-      <AsideComponent />
+      <AsideContainer />
       <TableContainer />
     </div>
   )

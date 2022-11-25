@@ -22,29 +22,5 @@
   
   & > .workItemlist {
     border-top: 1px solid rgba(38, 40, 66, 0.12);
-
-    & > .workItemItem {
-      display: flex;
-      align-items: center;
-      padding: 11px 20px;
-      border-bottom: 1px solid rgba(38, 40, 66, 0.12);
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 18px;
-      color: #262842;
-
-      & > svg {
-        margin-right: 4px;
-      }
-
-      & > .workItemAmount {
-        font-style: italic;
-        font-weight: 100;
-        font-size: 12px;
-        line-height: 16px;
-        color: #8B8C9E;
-        margin-right: 8px;
-      }
-    }
   }
 }
