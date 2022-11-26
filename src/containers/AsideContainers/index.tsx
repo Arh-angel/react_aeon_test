@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import AsideComponent from "../../components/pages/AsideComponent";
-import { useAppDispatch, useAppSelector } from "../../hooks/storeHooks";
-import { IData } from "../../models/IData";
-import { getData, selectData } from "../../store/slice/mainSlice/mainSlice";
+import React, { useEffect, useState } from 'react';
+import AsideComponent from '../../components/pages/AsideComponent';
+import { useAppDispatch, useAppSelector } from '../../hooks/storeHooks';
+import { IData } from '../../models/IData';
+import { getData, selectData } from '../../store/slice/mainSlice/mainSlice';
 
 const AsideContainer = () => {
   const [data, setData] = useState<IData | null>(null);
@@ -11,10 +11,10 @@ const AsideContainer = () => {
 
   const dispatch = useAppDispatch();
 
-  const getCurrentData = async () => await dispatch(getData());
+  const getCurrentData = () => dispatch(getData());
 
   useEffect(() => {
-      getCurrentData();
+    getCurrentData();
   }, []);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const AsideContainer = () => {
     }
   }, [currentData]);
 
-  return <AsideComponent currentValue={data} />
-}
+  return <AsideComponent currentValue={data} />;
+};
 
 export default AsideContainer;

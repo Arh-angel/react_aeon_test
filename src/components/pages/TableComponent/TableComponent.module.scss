@@ -1,0 +1,13 @@
+@import '../../../assets/style/main';
+@import '../../../assets/style/vars';
+
+.container {
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  & > .headerTable {
+    width: 100%;
+    background-color: #F7F8FC;
+    border-radius: 0 10px 0 0;
+  }
+}
