@@ -4,10 +4,8 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
-import React, { useEffect, useMemo } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../hooks/storeHooks';
+import React, { useMemo } from 'react';
 import { IData } from '../../../models/IData';
-import { addArrList, selectArrList } from '../../../store/slice/mainSlice/mainSlice';
 import Item from '../../common/Item';
 import style from './AsideComponent.module.scss';
 
@@ -17,9 +15,6 @@ type AsideComponentPropsTypes = {
 
 const AsideComponent = (props: AsideComponentPropsTypes) => {
   const { currentValue } = props;
-
-  const dispatch = useAppDispatch();
-  const actualValue: any = useAppSelector(selectArrList);
 
   const handlerData = (obj:any) => {
     const elements: any[] = [];
@@ -50,19 +45,13 @@ const AsideComponent = (props: AsideComponentPropsTypes) => {
     }
   }, [currentValue?.chart]);
 
-  useEffect(() => {
-    if (memoizedValue) {
-      dispatch(addArrList(memoizedValue));
-    }
-  }, [memoizedValue]);
-
   return (
     <div className={style.container}>
       <div className={style.workItem}>
         <h2 className={style.workItemTitle}>Work item</h2>
       </div>
       <div className={style.workItemlist}>
-        { currentValue?.chart && [...actualValue].reverse().map((item: any) => <React.Fragment key={Date.now() * Math.random() * 10000}>{item}</React.Fragment>) }
+        { currentValue?.chart && memoizedValue.reverse().map((item: any) => <React.Fragment key={Date.now() * Math.random() * 10000}>{item}</React.Fragment>) }
       </div>
     </div>
   );

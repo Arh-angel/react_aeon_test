@@ -20,7 +20,6 @@ export const getData = createAsyncThunk(
 
 export interface MainState {
   data: IData,
-  arrList: any[],
   error: string
 }
 
@@ -35,7 +34,6 @@ const initialState: MainState = {
       sub: []
     }
   },
-  arrList: [],
   error: ''
 };
 
@@ -55,12 +53,6 @@ export const mainSlice = createSlice({
         }
       };
     },
-    addArrList: (state, action) => {
-      state.arrList = [...action.payload];
-    },
-    clearArrList: (state) => {
-      state.arrList = [];
-    },
     clearErrorMessage: (state) => {
       state.error = '';
     },
@@ -78,10 +70,9 @@ export const mainSlice = createSlice({
   },
 });
 
-export const { clearData, addArrList, clearArrList, clearErrorMessage } = mainSlice.actions;
+export const { clearData, clearErrorMessage } = mainSlice.actions;
 
 export const selectData = (state: RootState) => state.main.data;
-export const selectArrList = (state: RootState) => state.main.arrList;
 export const selectAuthError = (state: RootState) => state.main.error;
 
 export default mainSlice.reducer;
