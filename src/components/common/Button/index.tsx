@@ -16,7 +16,7 @@ type ButtonPropsType = {
   icon: ReactElement | null
 };
 
-const  Button = (props: ButtonPropsType) => {
+const Button = (props: ButtonPropsType) => {
   // eslint-disable-next-line max-len
   const { clName, title, handler, width, height, background, textColor, fontSize, fontWeight, margin, borderRadius, icon } = props;
 

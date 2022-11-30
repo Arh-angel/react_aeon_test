@@ -22,8 +22,9 @@ const TableContainer = () => {
       setData(currentData);
     }
   }, [currentData]);
+
   return (
-    <TableComponent currentValue={data} />
+    <TableComponent currentData={data} />
   );
 };
 
